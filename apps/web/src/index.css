@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+  background-color: hsl(var(--background));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 217 38% 98%;
+    --foreground: 217 41% 19%;
+    --card: 214 42% 99%;
+    --card-foreground: 217 41% 19%;
+    --popover: 214 42% 99%;
+    --popover-foreground: 217 41% 19%;
+    
+    /* Primary: Dark Blue #1e3a8a */
+    --primary: 219 67% 36%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary: Muted Blue/Gray */
+    --secondary: 214 58% 95%;
+    --secondary-foreground: 217 41% 24%;
+    
+    --muted: 214 39% 95%;
+    --muted-foreground: 216 19% 49%;
+    
+    /* Accent: Green #10b981 */
+    --accent: 148 45% 42%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive: Red #ef4444 */
+    --destructive: 0 58% 53%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Alert/Warning: Orange */
+    --warning: 30 78% 56%;
+    --warning-foreground: 0 0% 100%;
+    
+    --border: 216 30% 90%;
+    --input: 216 30% 90%;
+    --ring: 219 67% 36%;
+    
+    --radius: 1rem;
+
+    --status-approved: 148 45% 42%;
+    --status-pending: 215 27% 54%;
+    --status-blocked: 0 55% 56%;
+    --status-expired: 215 18% 52%;
+
+    /* Custom Status Colors for Documents */
+    --status-not-attached: 215 18% 52%;
+    --status-attached: 30 78% 56%;
+    --status-verified: 148 45% 42%;
+
+    --sidebar-bg: 219 43% 17%;
+    --sidebar-fg: 214 35% 86%;
+    --sidebar-muted: 214 21% 68%;
+    --sidebar-active-bg: 214 65% 95%;
+    --sidebar-active-fg: 218 56% 30%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    --card: 224 71% 8%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71% 8%;
+    --popover-foreground: 210 20% 98%;
+    
+    --primary: 224 64% 33%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 224 71% 12%;
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 224 71% 12%;
+    --muted-foreground: 220 8% 60%;
+    
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --border: 224 71% 16%;
+    --input: 224 71% 16%;
+    --ring: 224 64% 33%;
+
+    --status-not-attached: 220 8% 60%;
+    --status-attached: 38 92% 50%;
+    --status-verified: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .table-vertical-only {
+    @apply w-full table-fixed;
+  }
+  .table-vertical-only th,
+  .table-vertical-only td {
+    @apply break-words whitespace-normal overflow-hidden;
+  }
+
+  /* Document Card & Checklist Utilities */
+  .doc-card {
+    @apply flex flex-col md:flex-row md:items-center justify-between p-3 bg-card border border-border rounded-2xl transition-all duration-200;
+  }
+  
+  .checklist-item {
+    @apply flex items-start space-x-3 p-3 rounded-lg transition-colors hover:bg-muted/50;
+  }
+  
+  .checklist-item-checked {
+    @apply bg-accent/5 hover:bg-accent/10;
+  }
+
+  .surface-card {
+    @apply bg-card border border-border rounded-2xl;
+  }
+
+  .page-title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-sm md:text-base text-muted-foreground mt-1;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold tracking-tight text-foreground;
+  }
+
+  .kpi-number {
+    @apply text-2xl md:text-3xl font-bold tabular-nums tracking-tight text-foreground;
+  }
+}
